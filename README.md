@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./banner.svg" width="100%" alt="Hammad Jawaid — Full-Stack Developer. Inside the mind of Hammad Jawaid." />
+<img src="./banner.png" width="100%" alt="Hammad Jawaid — Full-Stack Developer. Inside the mind of Hammad Jawaid: modern interfaces, powerful backends and databases, end to end. Available for work." />
 
 <p>
   <a href="https://hammad-developer.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Visit-3fd0c9?style=for-the-badge&amp;labelColor=14202a&amp;logo=vercel&amp;logoColor=14202a" alt="Portfolio" /></a>
