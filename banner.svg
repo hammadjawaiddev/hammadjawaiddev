@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="banner-title banner-desc">
+  <title id="banner-title">Hammad Jawaid — Full-Stack Developer</title>
+  <desc id="banner-desc">Banner reading: Inside the mind of Hammad Jawaid. Full-Stack Developer — Interfaces, APIs, Databases. Karachi, Pakistan. Available for work.</desc>
+
+  <defs>
+    <!-- Background: deep teal to near-black, diagonal -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14202a"/>
+      <stop offset="1" stop-color="#0b1219"/>
+    </linearGradient>
+
+    <!-- Soft teal glow, top-right -->
+    <radialGradient id="glow" cx="0.9" cy="0.02" r="0.72">
+      <stop offset="0" stop-color="#3fd0c9" stop-opacity="0.30"/>
+      <stop offset="0.42" stop-color="#3fd0c9" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#3fd0c9" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Underline gradient: teal to mint -->
+    <linearGradient id="underline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fd0c9"/>
+      <stop offset="1" stop-color="#7be3b5"/>
+    </linearGradient>
+
+    <!-- Very faint grid -->
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 H 0 V 44" fill="none" stroke="#3fd0c9" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+
+    <clipPath id="clip">
+      <rect width="1200" height="320" rx="20" ry="20"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#clip)">
+    <!-- Canvas -->
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <rect width="1200" height="320" fill="url(#grid)"/>
+    <rect width="1200" height="320" fill="url(#glow)"/>
+
+    <!-- Eyebrow label -->
+    <text x="64" y="86"
+          font-family="'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
+          font-size="16" letter-spacing="6.5" fill="#3fd0c9">INSIDE THE MIND OF</text>
+
+    <!-- Title -->
+    <text x="60" y="158"
+          font-family="'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif"
+          font-size="70" font-weight="800" letter-spacing="1.5" fill="#f2fbfa">HAMMAD JAWAID</text>
+
+    <!-- Gradient underline -->
+    <rect x="64" y="174" width="244" height="5" rx="2.5" fill="url(#underline)"/>
+
+    <!-- Subtitle -->
+    <text x="64" y="220"
+          font-family="'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif"
+          font-size="21.5" fill="#cfe8e6">Full-Stack Developer <tspan fill="#3fd0c9">·</tspan> Interfaces <tspan fill="#3fd0c9">·</tspan> APIs <tspan fill="#3fd0c9">·</tspan> Databases</text>
+
+    <!-- Footer note -->
+    <text x="64" y="272"
+          font-family="'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
+          font-size="14" letter-spacing="1.2" fill="#85adaa">Karachi, Pakistan · Still learning. Still shipping.</text>
+
+    <!-- Available for work — pulsing mint dot, bottom-right -->
+    <circle cx="942" cy="267" r="6" fill="none" stroke="#7be3b5" stroke-width="1.5" stroke-opacity="0.7">
+      <animate attributeName="r" values="5;13" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.7;0" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="942" cy="267" r="5" fill="#7be3b5">
+      <animate attributeName="r" values="4;6;4" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.55;1" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="956" y="272"
+          font-family="'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace"
+          font-size="14" letter-spacing="1.2" fill="#7be3b5">Available for work</text>
+  </g>
+
+  <!-- 1px teal border -->
+  <rect x="0.5" y="0.5" width="1199" height="319" rx="19.5" ry="19.5"
+        fill="none" stroke="#3fd0c9" stroke-opacity="0.5" stroke-width="1"/>
+</svg>
