@@ -74,9 +74,23 @@ for its own name/domain.
 ## Priority order
 
 1. Copy `seo/robots.txt` + `seo/sitemap.xml` into the portfolio repo root → deploy.
-2. Paste `seo/head-snippet.html` into both pages' `<head>` (adjust the hire-page URL/title lines), add `og-image.png`.
+2. Paste `seo/head-snippet.html` (home) and `seo/hire-head-snippet.html` (hire) into each page's `<head>`, upload `seo/og-image.png` (generated, 1200×630) to the site root.
 3. Fix the H1 text + heading spacing (#4).
 4. Search Console + Bing Webmaster Tools: verify, submit sitemap, request indexing.
 5. HTTPS for CTRL ZONE link; Karachi image alt; fill in the GitHub repo description/topics.
+
+## Done in this repo (2026-11-15, round 2)
+
+- ✅ Profile README rebuilt for search: real H1 (`Hammad Jawaid — Full-Stack Developer in Karachi, Pakistan`),
+  keyword-rich intro, **Web Development Services** section, descriptive project link anchors, and an
+  **FAQ section** mirroring the hire page (the questions people actually search).
+- ✅ `seo/sitemap.xml` upgraded to an **image sitemap** (all 5 project screenshots + Karachi skyline, with titles).
+- ✅ `seo/head-snippet.html` upgraded: `ProfilePage` + `Person` + `WebSite` JSON-LD graph, geo tags,
+  `max-image-preview:large`, longer keyword-led title.
+- ✅ New `seo/hire-head-snippet.html`: hire-page title/meta/canonical + **FAQPage** and **ProfessionalService** schema matching the visible FAQ.
+- ✅ New `seo/og-image.png` — ready-made 1200×630 social share image.
+- ✅ New `seo/APPLY-CHECKLIST.md` — 15-minute step-by-step to apply everything + Search Console/Bing submission.
+- ⛔ Repo description/topics could not be set from here (GitHub token: "Resource not accessible by
+  integration", 403) — manual values are in the checklist, step 6.
 
 **Supabase** is connected but switched off for this conversation — it isn't needed for SEO, so no action there.
