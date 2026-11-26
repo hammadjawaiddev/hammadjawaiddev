@@ -25,8 +25,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install font tooling (pyftsubset)
-        run: python -m pip install --upgrade fonttools brotli
+      - name: Install font tooling (pyftsubset) and Pillow
+        run: python -m pip install --upgrade fonttools brotli Pillow
 
       - name: Refresh data/contributions.json
         env:
