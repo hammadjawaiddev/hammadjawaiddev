@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 118" width="1200" height="118">
+<defs>
+<linearGradient id="panel" x1="0" x2="1"><stop offset="0" stop-color="#102a33"/><stop offset=".55" stop-color="#0b1a22"/><stop offset="1" stop-color="#102a33"/></linearGradient>
+<linearGradient id="sheen" x1="0" x2="1"><stop offset="0" stop-color="#3fd0c9" stop-opacity="0"/><stop offset=".5" stop-color="#7be3b5" stop-opacity=".55"/><stop offset="1" stop-color="#3fd0c9" stop-opacity="0"/></linearGradient>
+<pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#3fd0c9" stroke-opacity=".07" stroke-width="1"/></pattern>
+<clipPath id="round"><rect width="1200" height="118" rx="16"/></clipPath>
+</defs>
+<style>
+@keyframes l1{0%,30%{opacity:1}33%,100%{opacity:0}}
+@keyframes l2{0%,32%{opacity:0}35%,63%{opacity:1}66%,100%{opacity:0}}
+@keyframes l3{0%,65%{opacity:0}68%,97%{opacity:1}100%{opacity:0}}
+@keyframes cur{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes scan{0%{transform:translateX(-220px)}100%{transform:translateX(1220px)}}
+</style>
+<g clip-path="url(#round)">
+<rect width="1200" height="118" fill="url(#panel)"/>
+<rect width="1200" height="118" fill="url(#grid)"/>
+<rect x="0" y="0" width="220" height="118" fill="url(#sheen)" opacity=".18" style="animation:scan 7s linear infinite"/>
+<rect x="0" y="0" width="1200" height="2" fill="url(#sheen)" opacity=".7"/>
+<rect x="0" y="116" width="1200" height="2" fill="url(#sheen)" opacity=".4"/>
+<rect x="30" y="24" width="3" height="70" fill="#7be3b5"/>
+<text x="52" y="42" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#3fd0c9" letter-spacing="3">// CURRENTLY TRANSMITTING</text>
+<text x="52" y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="500" fill="#f2fbfa" letter-spacing="1" opacity="1" style="animation:l1 9s infinite">Build the interface. Wire the API. Own the database.</text>
+<text x="52" y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="500" fill="#f2fbfa" letter-spacing="1" opacity="0" style="animation:l2 9s infinite">One project at a time &gt; idea &gt; live &gt; learn &gt; repeat.</text>
+<text x="52" y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="500" fill="#f2fbfa" letter-spacing="1" opacity="0" style="animation:l3 9s infinite">Karachi, Pakistan &gt; building for anywhere.</text>
+<rect x="52" y="87" width="10" height="3" fill="#7be3b5" style="animation:cur 1s steps(1) infinite"/>
+<text x="52" y="103" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="500" fill="#8fb8b5" letter-spacing="2">FULL-STACK / END TO END / OPEN TO WORK</text>
+<rect x="872" y="26" width="300" height="66" rx="30" fill="#12323a" stroke="#3fd0c9" stroke-opacity=".55"/>
+<circle cx="902" cy="59" r="7" fill="#7be3b5" style="animation:pulse 1.8s ease-in-out infinite"/>
+<text x="920" y="55" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" fill="#7be3b5" letter-spacing="2">AVAILABLE FOR WORK</text>
+<text x="920" y="75" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="500" fill="#8fb8b5" letter-spacing="1">FREELANCE / CONTRACT / FULL-TIME</text>
+</g>
+</svg>
