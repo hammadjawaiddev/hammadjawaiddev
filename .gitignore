@@ -1,2 +1,5 @@
-# Local-only README preview (generated for review, not part of the profile)
+# Local review artifacts — regenerate with the renderer, never commit
 preview.html
+preview/
+__pycache__/
+*.pyc
