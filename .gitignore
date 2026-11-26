@@ -1,0 +1,5 @@
+# Local review artifacts — regenerate with the renderer, never commit
+preview.html
+preview/
+__pycache__/
+*.pyc
