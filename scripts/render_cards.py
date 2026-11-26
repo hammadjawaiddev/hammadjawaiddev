@@ -5,8 +5,9 @@ Render the profile README as a stack of animated SVG cards — "Three Worlds".
 Matched to avivashishta.com's design language: paper (#f3f3f1), ink (#111111)
 and three colours — BUILD blue (#2f55ff), BRAND red (#ef3b2d), LEARN yellow
 (#ffc81a) — with Instrument Serif, Geist and Geist Mono. The hero's ASCII
-portrait is generated from assets/portrait-ink.png, a pen-and-ink rendition of
-the photo the user supplied (assets/source-photo.jpg).
+portrait comes from assets/portrait-prepped.png, a square, ridge-darkened
+grayscale made from the photo the user supplied (assets/source-photo.jpg ->
+assets/portrait-ink.png -> scripts/prep_portrait.py).
 
 Every card is a standalone SVG shown through <img>, so it can only use what
 GitHub allows there: an inline <style> block with CSS keyframes, SMIL
@@ -40,7 +41,7 @@ import urllib.request
 from html import escape
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "contributions.json"
@@ -48,7 +49,7 @@ OUT = Path(os.environ.get("CARDS_OUT", "cards"))
 if not OUT.is_absolute():
     OUT = ROOT / OUT
 FONTS = ROOT / "fonts"
-INK_SOURCE = ROOT / "assets" / "portrait-ink.png"
+PREP_SOURCE = ROOT / "assets" / "portrait-prepped.png"
 STATIC = os.environ.get("STATIC", "") == "1"
 USERNAME = "hammadjawaiddev"
 
@@ -309,30 +310,38 @@ def fetch_contributions() -> None:
 
 
 # ---- ASCII portrait from the user's photo -----------------------------------
+# Same sampling constants as Avi's scripts/make_ascii_svg.py.
 ASCII_COLS, ASCII_ROWS = 180, 96
-RAMP = " .`:-=+*cs#%@"
+RAMP = " .`:-=+*cs#%@"      # bright/sparse -> dark/dense
+ASCII_GAMMA = 1.18          # >1 brightens mids so the face reads as sparse chars
+WHITE_FLOOR = 0.86          # above this luminance the paper is left blank
+FADE_FROM = 0.80            # shoulders dissolve into the paper at the bottom
 
 
 def portrait_rows():
-    """Sample the ink portrait into 96 rows that print in like a terminal."""
-    im = Image.open(INK_SOURCE).convert("L")
-    iw, ih = im.size
-    side = min(iw, 560)
-    x0, y0 = (iw - side) // 2, 110
-    small = im.crop((x0, y0, x0 + side, y0 + side)).resize(
-        (ASCII_COLS, ASCII_ROWS), Image.LANCZOS)
+    """Sample the prepared portrait into 96 rows that print in like a terminal.
+
+    Every row MUST stay exactly ASCII_COLS characters wide. The hero uses
+    textLength="800" with lengthAdjust="spacing"; trimming trailing spaces makes
+    short rows stretch sideways and warps the face.
+    """
+    im = ImageEnhance.Contrast(
+        Image.open(PREP_SOURCE).convert("L")).enhance(1.05)
+    small = im.resize((ASCII_COLS, ASCII_ROWS), Image.LANCZOS)
     px = small.load()
     rows = []
     for y in range(ASCII_ROWS):
-        fade = min(1.0, max(0.0, (y - ASCII_ROWS * .84) / (ASCII_ROWS * .16)))
+        fade = min(1.0, max(0.0, (y / ASCII_ROWS - FADE_FROM) / (1 - FADE_FROM)))
         line = []
         for x in range(ASCII_COLS):
-            lum = px[x, y] / 255.0
+            lum = (px[x, y] / 255.0) ** ASCII_GAMMA
             lum = lum + (1 - lum) * fade          # soften the bottom edge
-            v = 0 if lum >= .88 else 1 - lum
-            line.append(RAMP[max(0, min(len(RAMP) - 1,
-                                        int(v * (len(RAMP) - 1) + .5)))])
-        rows.append("".join(line).rstrip())
+            if lum >= WHITE_FLOOR:
+                line.append(" ")
+                continue
+            idx = int((1 - lum) * (len(RAMP) - 1) + .5)
+            line.append(RAMP[max(0, min(len(RAMP) - 1, idx))])
+        rows.append("".join(line))                # never rstrip
     return rows
 
 
